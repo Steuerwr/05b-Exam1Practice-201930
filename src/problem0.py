@@ -174,6 +174,12 @@ def run_test_problem0a():
 
 
 def problem0a(n):
+    if (sum_of_digits(n))%2 == 1:
+        return True
+    else:
+        return False
+
+
     """
     What comes in:  An integer.
     What goes out:
@@ -246,6 +252,7 @@ def run_test_problem0b():
 
 
 def problem0b(n):
+
     """
     What comes in:  An integer n >= 2.
     What goes out:
