@@ -252,6 +252,15 @@ def run_test_problem0b():
 
 
 def problem0b(n):
+    total = 0
+    for k in range(2, n+1):
+        if is_prime(k) is True:
+            total = total + 1
+        else:
+            total = total + 0
+    return total
+
+
 
     """
     What comes in:  An integer n >= 2.
@@ -278,8 +287,7 @@ def problem0b(n):
     #    **  use (call) the   is_prime   function that is DEFINED ABOVE.
     ###########################################################################
     # ------------------------------------------------------------------
-for k in range():
-    if is_prime(csc):
+
 
 
 def run_test_problem0c():
@@ -316,6 +324,13 @@ def run_test_problem0c():
 
 
 def problem0c(circle, n, window):
+    circle.attach_to(window)
+    for k in range(n):
+        Point1 = rg.Point(circle.center.x + (2*circle.radius)*(k+1), circle.center.y)
+        circle1 = rg.Circle(Point1, circle.radius)
+        circle1.attach_to(window)
+        window.render(.5)
+    window.close_on_mouse_click()
     """
     See   problem0c_picture.pdf   in this project for pictures
     that may help you better understand the following specification:
@@ -348,7 +363,7 @@ def problem0c(circle, n, window):
     ###########################################################################
     # -------------------------------------------------------------------------
 window = rg.RoseWindow
-window.render()
+#window.render()
 
 ###############################################################################
 # Our tests use the following to print error messages in red.

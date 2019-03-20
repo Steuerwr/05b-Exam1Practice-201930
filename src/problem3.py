@@ -3,8 +3,8 @@ PRACTICE Exam 1, problem 3.
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Mark Hays, Amanda Stouder, Aaron Wilkin, their colleagues,
-         and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         and Will Steuerwald.
+"""  # Done: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 
@@ -38,7 +38,7 @@ def main():
 def run_test_problem3a():
     """ Tests the   problem3a   function. """
     # -------------------------------------------------------------------------
-    # TODO: 2. Implement this TEST function.
+    # Done: 2. Implement this TEST function.
     #   It TESTS the  problem1a  function defined below.
     #   Include at least **   5   ** tests (we wrote four for you).
     # -------------------------------------------------------------------------
@@ -98,14 +98,41 @@ def run_test_problem3a():
 
     window3.close_on_mouse_click()
 
+
     # -------------------------------------------------------------------------
     # TO DO: 2 (continued).
     # Below this comment (or integrated with one of the above tests,
     # your choice), add 1 more test case of your own choosing.
     # -------------------------------------------------------------------------
+    # Window 5:
+    title = 'Problem 3a. Test 5: Start at (20, 20), 7 lines'
+    window5 = rg.RoseWindow(300, 150, title)
 
+    # Test 5 (it is on window 1):
+    point = rg.Point(20, 20)
+    expected = 36
+    answer = problem3a(window5, point, 7)
+    print()
+    print('Test 1 expected:', expected)
+    print('       actual:  ', answer)
+
+    window5.close_on_mouse_click()
 
 def problem3a(window, point, n):
+    total = 0
+    for k in range(n):
+        point = rg.Point(point.x+20, point.y+10)
+        line = rg.Line(point, rg.Point(point.x, point.y-50))
+        if line.thickness >= 13:
+            line.thickness = 13
+        else:
+            line.thickness = 1 + 2 * k
+        line.attach_to(window)
+        total = total + line.thickness
+    window.render()
+    return total
+
+
     """
     See   problem3a_picture.pdf   in this project for pictures
     that may help you better understand the following specification:
@@ -138,7 +165,7 @@ def problem3a(window, point, n):
         :type n:      int
     """
     # -------------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # Done: 3. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     # -------------------------------------------------------------------------
     # -------------------------------------------------------------------------
